@@ -11,4 +11,9 @@
 
 @interface InterfaceController : WKInterfaceController
 
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *latitudeLabel;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *longitudeLabel;
+
+- (IBAction)getLocationPressed;
+
 @end

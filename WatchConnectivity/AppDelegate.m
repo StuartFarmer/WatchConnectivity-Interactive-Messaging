@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <WCSessionDelegate, CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
+    WCSession *session;
+}
 
 @end
 
@@ -16,7 +20,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Start Watch Connectivity for Interactive Messaging
+    session = [WCSession defaultSession];
+    session.delegate = self;
+    [session activateSession];
+    
+    // Start up location manager
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager requestAlwaysAuthorization];
+    locationManager.delegate = self;
+    
+    // Accuracy constants here. These should be tested for battery optimization.
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    
+    [locationManager startUpdatingLocation];
+
     return YES;
 }
 
@@ -39,7 +58,40 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Send a message to the watch app to tell it that the background program is about to be closed, and to either reopen it or issue an error, as the location services will be terminated.
+    [session sendMessage:@{@"message":@"iOSAppTerminationOccuring"} replyHandler:nil errorHandler:^(NSError * __nonnull error) {
+        NSLog(@"Error sending termination message");
+    }];
+}
+ 
+- (void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray *)locations {
+    // Send the location to the watch app for processing
+    CLLocation *lastLocation = [locations objectAtIndex:0];
+    NSDictionary *locationDictionary = @{@"latitude" : @(lastLocation.coordinate.latitude), @"longitude" : @(lastLocation.coordinate.longitude)};
+    
+    [session sendMessage:locationDictionary replyHandler:^(NSDictionary<NSString *,id> * __nonnull replyMessage) {
+        if ([[replyMessage objectForKey:@"message"] isEqualToString:@"error"]) {
+            NSLog(@"Error in reply");
+        }
+    } errorHandler:^(NSError * __nonnull error) {
+        NSLog(@"Error sending");
+    }];
+}
+
+#pragma WCSessionDelegate Methods
+// The staple session method that is called whenever a message is sent to the iOS app.
+- (void)session:(nonnull WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message replyHandler:(nonnull void (^)(NSDictionary<NSString *,id> * __nonnull))replyHandler {
+    
+    // In this case, the message content being sent from the app is a simple begin message. This tells the app to wake up and begin sending location information to the watch.
+    if ([[message objectForKey:@"message"] isEqualToString:@"begin"]) {
+        
+        // Send an initial response for program brevity. Currently not using reply handles.
+        NSDictionary *locationDictionary = @{@"latitude" : @([locationManager location].coordinate.latitude), @"longitude" : @([locationManager location].coordinate.longitude)};
+        
+        [self->session sendMessage:locationDictionary replyHandler:nil errorHandler:^(NSError * __nonnull error) {
+            NSLog(@"Error sending");
+        }];
+    }
 }
 
 @end

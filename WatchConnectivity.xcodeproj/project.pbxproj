@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C2FA9811B30712600462B1B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */; };
+		9C2FA9821B30712600462B1B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */; };
+		9C2FA9831B30712700462B1B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */; };
+		9C2FA9851B30717700462B1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2FA9841B30717700462B1B /* CoreLocation.framework */; };
 		9C4E79461B2F71A3005F0C12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E79451B2F71A3005F0C12 /* main.m */; };
 		9C4E79491B2F71A3005F0C12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E79481B2F71A3005F0C12 /* AppDelegate.m */; };
 		9C4E794C1B2F71A3005F0C12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E794B1B2F71A3005F0C12 /* ViewController.m */; };
@@ -23,6 +27,7 @@
 		9C4E79891B2F71A3005F0C12 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E79881B2F71A3005F0C12 /* ExtensionDelegate.m */; };
 		9C4E798C1B2F71A3005F0C12 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E798B1B2F71A3005F0C12 /* NotificationController.m */; };
 		9C4E798E1B2F71A3005F0C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E798D1B2F71A3005F0C12 /* Assets.xcassets */; };
+		9C4E79A41B2F71B4005F0C12 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C2FA9841B30717700462B1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9C4E79411B2F71A3005F0C12 /* WatchConnectivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchConnectivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4E79451B2F71A3005F0C12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C4E79471B2F71A3005F0C12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		9C4E798B1B2F71A3005F0C12 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		9C4E798D1B2F71A3005F0C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C4E798F1B2F71A3005F0C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2FA9851B30717700462B1B /* CoreLocation.framework in Frameworks */,
+				9C4E79A41B2F71B4005F0C12 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2FA9811B30712600462B1B /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2FA9821B30712600462B1B /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2FA9831B30712700462B1B /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +161,8 @@
 		9C4E79381B2F71A3005F0C12 = {
 			isa = PBXGroup;
 			children = (
+				9C2FA9841B30717700462B1B /* CoreLocation.framework */,
+				9C4E79A31B2F71B4005F0C12 /* WatchConnectivity.framework */,
 				9C4E79431B2F71A3005F0C12 /* WatchConnectivity */,
 				9C4E795D1B2F71A3005F0C12 /* WatchConnectivityTests */,
 				9C4E79681B2F71A3005F0C12 /* WatchConnectivityUITests */,
@@ -753,6 +767,7 @@
 				9C4E79941B2F71A3005F0C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C4E79961B2F71A3005F0C12 /* Build configuration list for PBXNativeTarget "WatchConnectivity WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -761,6 +776,7 @@
 				9C4E79981B2F71A3005F0C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C4E799A1B2F71A3005F0C12 /* Build configuration list for PBXNativeTarget "WatchConnectivity" */ = {
 			isa = XCConfigurationList;
@@ -769,6 +785,7 @@
 				9C4E799C1B2F71A3005F0C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C4E799D1B2F71A3005F0C12 /* Build configuration list for PBXNativeTarget "WatchConnectivityTests" */ = {
 			isa = XCConfigurationList;
@@ -777,6 +794,7 @@
 				9C4E799F1B2F71A3005F0C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C4E79A01B2F71A3005F0C12 /* Build configuration list for PBXNativeTarget "WatchConnectivityUITests" */ = {
 			isa = XCConfigurationList;
@@ -785,6 +803,7 @@
 				9C4E79A21B2F71A3005F0C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

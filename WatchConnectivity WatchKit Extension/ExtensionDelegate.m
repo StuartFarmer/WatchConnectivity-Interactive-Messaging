@@ -7,11 +7,22 @@
 //
 
 #import "ExtensionDelegate.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
 @implementation ExtensionDelegate
 
 - (void)applicationDidFinishLaunching {
-    // Perform any final initialization of your application.
+    // Start Watch Connectivity for Interactive Messaging
+    WCSession *session = [WCSession defaultSession];
+    session.delegate = self;
+    [session activateSession];
+    
+    // Check to see if the session is able to function
+    if (session.isReachable) {
+        NSLog(@"Able to reach app.");
+    }
+    
+    // Cool. Carry on in Interface Controller.
 }
 
 - (void)applicationDidBecomeActive {

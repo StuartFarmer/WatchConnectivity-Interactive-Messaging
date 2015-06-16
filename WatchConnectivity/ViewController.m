@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface ViewController ()
+@interface ViewController () <WCSessionDelegate>
 
 @end
 
